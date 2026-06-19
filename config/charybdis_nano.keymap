@@ -16,6 +16,12 @@
     quick-tap-ms = <170>;
 };
 
+&mt {
+    tapping-term-ms = <130>;
+    quick-tap-ms = <130>;
+    flavor = "balanced";
+};
+
 / {
     behaviors {
         td0: tap_dance_0 {
