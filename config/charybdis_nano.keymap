@@ -170,13 +170,6 @@
             timeout-ms = <50>;
             slow-release;
         };
-
-        Ctrl_C {
-            bindings = <&kp LC(C)>;
-            key-positions = <2 3>;
-            timeout-ms = <50>;
-            slow-release;
-        };
     };
 
     keymap {
