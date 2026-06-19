@@ -82,11 +82,11 @@
 
         BASE {
             bindings = <
-&kp TAB           &mt LCTRL Q  &kp W         &kp E      &kp R  &kp T           &kp Y  &kp U        &kp I      &kp O     &kp P     &kp BACKSPACE
-&kp LEFT_CONTROL  &kp A        &kp S         &kp D      &kp F  &kp G           &kp H  &kp J        &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LEFT_GUI      &kp Z        &kp X         &kp C      &kp V  &kp B           &kp N  &kp M        &kp COMMA  &kp DOT   &kp FSLH  &mo 1
-                               &kp LC(C)     &kp LC(V)  &mo 3  &kp LEFT_SHIFT  &none  &lt 4 SPACE  &kp LBKT   &kp RBKT
-                               &kp LEFT_GUI  &mo 6      &none  &none           &none  &none        &mo 6      &kp LALT
+&kp TAB           &mt LCTRL Q  &kp W      &kp E      &kp R     &kp T           &kp Y  &kp U        &kp I      &kp O     &kp P     &kp BACKSPACE
+&kp LEFT_CONTROL  &kp A        &kp S      &kp D      &kp F     &kp G           &kp H  &kp J        &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LEFT_GUI      &kp Z        &kp X      &kp C      &kp V     &kp B           &kp N  &kp M        &kp COMMA  &kp DOT   &kp FSLH  &mo 1
+                               &kp LC(C)  &kp LC(V)  &mo 3     &kp LEFT_SHIFT  &none  &lt 4 SPACE  &kp LBKT   &kp RBKT
+                               &none      &mo 6      &kp LGUI  &none           &none  &none        &mo 6      &kp LALT
             >;
         };
 
