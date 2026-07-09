@@ -1,16 +1,6 @@
 name: Build ZMK firmware
 
-on:
-  push:
-    branches:
-      - main
-      - dya
-  pull_request:
-  workflow_dispatch:
-    inputs:
-      release:
-        description: "Create a release artifact with given version"
-        required: true
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
