@@ -9,11 +9,12 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#define DEFAULT 0
-#define NUMBER  1
-#define SYMBOL  2
-#define HOTKEY  3
+#define BASE 0
+#define NAVI  1
+#define NUMBER  2
+#define FUNC  3
 #define MOUSE   4
+#define BL   5
 
 &lt {
     tapping-term-ms = <200>;
@@ -180,41 +181,41 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            label = "DEFAULT";
+        base_layer {
+            label = "BASE";
             bindings = <
 &kp TAB           &mt LCTRL Q  &kp W      &kp E      &kp R     &kp T           &kp Y  &kp U        &kp I      &kp O      &kp P     &kp BACKSPACE
 &kp LEFT_CONTROL  &kp A        &kp S      &kp D      &kp F     &kp G           &kp H  &kp J        &kp K      &kp L      &kp SEMI  &kp SQT
 &kp CAPSLOCK      &kp Z        &kp X      &kp C      &kp V     &kp B           &kp N  &kp M        &kp COMMA  &kp DOT    &kp FSLH  &mo 1
-                               &kp LC(C)  &kp LC(V)  &mo 3     &kp LEFT_SHIFT  &none  &lt 4 SPACE  &kp LC(Z)  &kp LC(Y)
+                               &kp LC(C)  &kp LC(V)  &mo 1     &kp LEFT_SHIFT  &none  &lt 2 SPACE  &kp LC(Z)  &kp LC(Y)
                                &none      &none      &kp LGUI  &none           &none  &none        &none      &kp LALT
+            >;
+        };
+
+        navi_layer {
+            label = "NAVI";
+            bindings = <
+&trans  &trans  &trans    &kp UP_ARROW  &trans     &bt BT_PRV  &bt BT_NXT     &trans   &kp CAPSLOCK  &trans         &out OUT_TOG   &bt BT_SEL 0
+&trans  &trans  &kp LEFT  &kp DOWN      &kp RIGHT  &trans      &kp GRAVE      &kp INS  &kp HOME      &kp PAGE_UP    &kp BACKSPACE  &none
+&mo 5   &trans  &trans    &trans        &trans     &trans      &kp BACKSLASH  &kp DEL  &kp END       &kp PAGE_DOWN  &trans         &trans
+                &trans    &trans        &trans     &trans      &trans         &mo 3    &trans        &trans
+                &trans    &trans        &trans     &trans      &trans         &trans   &trans        &trans
             >;
         };
 
         number_layer {
             label = "NUMBER";
             bindings = <
-&trans  &trans  &trans    &kp UP_ARROW  &trans     &bt BT_PRV  &bt BT_NXT     &trans   &kp CAPSLOCK  &trans         &out OUT_TOG   &bt BT_SEL 0
-&trans  &trans  &kp LEFT  &kp DOWN      &kp RIGHT  &trans      &kp GRAVE      &kp INS  &kp HOME      &kp PAGE_UP    &kp BACKSPACE  &none
-&mo 6   &trans  &trans    &trans        &trans     &trans      &kp BACKSLASH  &kp DEL  &kp END       &kp PAGE_DOWN  &trans         &trans
-                &trans    &trans        &trans     &trans      &trans         &mo 5    &trans        &trans
-                &trans    &trans        &trans     &trans      &trans         &trans   &trans        &trans
-            >;
-        };
-
-        symbol_layer {
-            label = "SYMBOL";
-            bindings = <
 &trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9     &kp N0     &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp EQUAL  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp DOT    &trans     &mo 6
-                &trans  &trans  &mo 5   &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp DOT    &trans     &mo 5
+                &trans  &trans  &mo 3   &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
-        hotkey_layer {
-            label = "HOTKEY";
+        func_layer {
+            label = "FUNC";
             bindings = <
 &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5          &kp F6      &kp F7  &kp F8  &kp F9   &kp F10  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans      &trans  &trans  &kp F11  &kp F12  &trans
@@ -235,43 +236,14 @@
             >;
         };
 
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        layer_6 {
+        bl_layer {
+            label = "BL";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &bootloader  &bootloader  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &sys_reset   &sys_reset   &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans       &trans       &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans       &trans       &trans  &trans  &trans
                 &trans  &trans  &trans  &trans       &trans       &trans  &trans  &trans
-            >;
-        };
-
-        layer_7 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        layer_8 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
